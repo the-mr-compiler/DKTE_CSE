@@ -119,8 +119,8 @@ Movie Tickets Sale and Donation to Charity
 
 - [main.cpp](#main.cpp)
 - [movieHouse.h](#movieHouse.h)
-- [movieHouseOperation.h](#movieHouseOperation.h)
-- [movieHouseOperation.cpp](#movieHouseOperation.cpp)
+- [movieHouseOperations.h](#movieHouseOperations.h)
+- [movieHouseOperations.cpp](#movieHouseOperations.cpp)
 
 # Solutions
 
