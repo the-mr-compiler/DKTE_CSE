@@ -122,6 +122,8 @@ Movie Tickets Sale and Donation to Charity
 - [movieHouseOperation.h](#movieHouseOperation.h)
 - [movieHouseOperation.cpp](#movieHouseOperation.cpp)
 
+# Solutions
+
 ### Solution in a single file
 
 ```c
@@ -189,7 +191,7 @@ int main()
 
 ### Solution in seprate files
 
-##### main.cpp
+##### [main.cpp](main.cpp)
 
 ```c
 #include "movieHouse.h"
@@ -204,7 +206,7 @@ int main(){
 }
 ```
 
-##### movieHouse.h
+##### [movieHouse.h](movieHouse.h)
 
 ```c
 using namespace std;
@@ -215,7 +217,7 @@ struct MovieHouse{
 };
 ```
 
-##### movieHouseOperations.h
+##### [movieHouseOperations.h](movieHouseOperations.h)
 
 ```c
 void setMovieHouseData(struct MovieHouse*);
@@ -223,7 +225,7 @@ void generateReport(struct MovieHouse);
 
 ```
 
-##### movieHouseOperations.cpp
+##### [movieHouseOperations.cpp](movieHouseOperations.h)
 
 ```c
 #include <iostream>
