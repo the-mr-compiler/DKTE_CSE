@@ -1,8 +1,11 @@
+#include "Person.h"
 #include "Product.h"
-int main(){
-    Product p;
-    p.intialiseProduct();
-    p.displayProduct();
+int main()
+{
+    Person per;
+    Product prd;
+    per.acceptPersonDetails();
+    per.displayPersonDetails();
+    prd.intialiseProduct();
+    prd.displayProduct();
 }
-
-

@@ -129,6 +129,7 @@ _Constructors can be overloaded, to support different ways of object initializat
 6. [Person.cpp](#Person.cpp)
 7. [Product.h](#Product.h)
 8. [Product.cpp](#Product.cpp)
+9. [main.cpp](#main.cpp)
 
 #### Date.h
 
@@ -367,4 +368,21 @@ void Product::displayProduct(){
     cout<<"\nStock Quantity :"<<this->stockQantity;
     cout<<"\nMinimum Stock :"<<this->minimumQuantity;
 }
+```
+
+#### main.cpp
+
+```c
+#include "Person.h"
+#include "Product.h"
+int main()
+{
+    Person per;
+    Product prd;
+    per.acceptPersonDetails();
+    per.displayPersonDetails();
+    prd.intialiseProduct();
+    prd.displayProduct();
+}
+
 ```
