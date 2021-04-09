@@ -1,6 +1,7 @@
 ## EXPERIMENT NO - 2
 
 **Title**: Write a program to make a use of manipulators in C++.
+
 **Objectives**:
 
 1. To understand the use of different manipulators.
@@ -112,11 +113,178 @@ Movie Tickets Sale and Donation to Charity
 
 **Output**: The output is as shown above.
 
-**[Solution](exp2.cpp)** (In a single file)
+**[Solution](#Solution-in-a-single-file)** (In a single file)
 
-**Solution** (In seprate files)
+**[Solution](#Solution-in-seprate-files)** (In seprate files)
 
-- [main.cpp](main.cpp)
-- [movieHouse.h](movieHouse.h)
-- [movieHouseOperation.h](movieHouseOperation.h)
-- [movieHouseOperation.cpp](movieHouseOperation.cpp)
+- [main.cpp](#main.cpp)
+- [movieHouse.h](#movieHouse.h)
+- [movieHouseOperation.h](#movieHouseOperation.h)
+- [movieHouseOperation.cpp](#movieHouseOperation.cpp)
+
+### Solution in a single file
+
+```c
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	string movieName;
+	float adultTicketPrice, childTicketPrice, grossAmount, donationPercentage, netAmount, donation;
+	int adultTicketsSold, childTicketsSold, totalTicketsSold;
+	cout << "Enter Movie Name : ";
+	getline(cin, movieName);
+	cout << "\nAdult Ticket Price : ";
+	cin >> adultTicketPrice;
+	cout << "\nChild Ticket Price : ";
+	cin >> childTicketPrice;
+	cout << "\nAdult Tickets sold : ";
+	cin >> adultTicketsSold;
+	cout << "\nChild Tickets sold : ";
+	cin >> childTicketsSold;
+	cout << "\nDonation Percentage (%) : ";
+	cin >> donationPercentage;
+
+	grossAmount = (adultTicketPrice * adultTicketsSold) + (childTicketPrice * childTicketsSold);
+	donation = (grossAmount * donationPercentage) / 100;
+	netAmount = grossAmount - donation;
+	totalTicketsSold = adultTicketsSold + childTicketsSold;
+
+	for (int i = 0; i < 30; i++)
+		cout << "_*";
+
+	cout << endl
+		 << endl
+		 << setw(40) << setfill('.') << left << "Movie Name: ";
+	cout << setw(11) << setfill(' ') << right << movieName;
+
+	cout << endl
+		 << setw(40) << setfill('.') << left << "Number of Tickets Sold: ";
+	cout << setw(11) << setfill(' ') << right << totalTicketsSold;
+
+	cout << endl
+		 << setw(40) << setfill('.') << left << "Gross Amount: ";
+	cout << '$' << setw(10) << setfill(' ') << right << fixed << setprecision(2) << grossAmount;
+
+	cout << endl
+		 << setw(40) << setfill('.') << left << "Percentage of Gross Amount Donated: ";
+	cout << '$' << setw(10) << setfill(' ') << right << donationPercentage << "%";
+
+	cout << endl
+		 << setw(40) << setfill('.') << left << "Amount Donated: ";
+	cout << '$' << setw(10) << setfill(' ') << right << donation;
+
+	cout << endl
+		 << endl
+		 << setw(40) << setfill('.') << left << "Net Sale: ";
+	cout << '$' << setw(10) << setfill(' ') << right << netAmount;
+
+	cout << endl
+		 << endl;
+}
+
+```
+
+### Solution in seprate files
+
+##### main.cpp
+
+```c
+#include "movieHouse.h"
+#include "movieHouseOperations.h"
+#include "malloc.h"
+
+int main(){
+    struct MovieHouse *movieHouse;
+    movieHouse=(struct MovieHouse*)malloc(sizeof(struct MovieHouse));
+    setMovieHouseData(movieHouse);
+    generateReport(*movieHouse);
+}
+```
+
+##### movieHouse.h
+
+```c
+using namespace std;
+struct MovieHouse{
+    char movieName[100];
+	float adultTicketPrice,childTicketPrice,grossAmount,donationPercentage,netAmount,donation;
+	int adultTicketsSold,childTicketsSold,totalTicketsSold;
+};
+```
+
+##### movieHouseOperations.h
+
+```c
+void setMovieHouseData(struct MovieHouse*);
+void generateReport(struct MovieHouse);
+
+```
+
+##### movieHouseOperations.cpp
+
+```c
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+#include "movieHouse.h"
+using namespace std;
+void setMovieHouseData(struct MovieHouse* movieHouse){
+    system("clear");
+	cout<<"Enter Movie Name : ";
+	cin.getline(movieHouse->movieName,100);
+	cout<<"\nAdult Ticket Price : ";
+	cin>>movieHouse->adultTicketPrice;
+	cout<<"\nChild Ticket Price : ";
+	cin>>movieHouse->childTicketPrice;
+	cout<<"\nAdult Tickets sold : ";
+	cin>>movieHouse->adultTicketsSold;
+	cout<<"\nChild Tickets sold : ";
+	cin>>movieHouse->childTicketsSold;
+	cout<<"\nDonation Percentage (%) : ";
+	cin>>movieHouse->donationPercentage;
+}
+void generateReport(struct MovieHouse movieHouse){
+
+    system("clear");
+
+	movieHouse.grossAmount=(movieHouse.adultTicketPrice*movieHouse.adultTicketsSold)+(movieHouse.childTicketPrice* movieHouse.childTicketsSold);
+	movieHouse.donation=(movieHouse.grossAmount*movieHouse.donationPercentage)/100;
+	movieHouse.netAmount=movieHouse.grossAmount-movieHouse.donation;
+	movieHouse.totalTicketsSold=movieHouse.adultTicketsSold+movieHouse.childTicketsSold;
+
+	for(int i=0;i<25;i++)
+	cout<<"_*";
+
+	cout<<endl<<endl<<setw(40)<<setfill('.')<<left<<"Movie Name: ";
+	cout<<setw(11)<<setfill(' ')<<right<<movieHouse.movieName;
+
+	cout<<endl<<setw(40)<<setfill('.')<<left<<"Number of Tickets Sold: ";
+	cout<<setw(11)<<setfill(' ')<<right<<movieHouse.totalTicketsSold;
+
+	cout<<endl<<setw(40)<<setfill('.')<<left<<"Gross Amount: ";
+	cout<<'$'<<setw(10)<<setfill(' ')<<right<<fixed<<setprecision(2)<<movieHouse.grossAmount;
+
+	cout<<endl<<setw(40)<<setfill('.')<<left<<"Percentage of Gross Amount Donated: ";
+	cout<<'$'<<setw(10)<<setfill(' ')<<right<<movieHouse.donationPercentage<<"%";
+
+	cout<<endl<<setw(40)<<setfill('.')<<left<<"Amount Donated: ";
+	cout<<'$'<<setw(10)<<setfill(' ')<<right<<movieHouse.donation;
+
+	cout<<endl<<endl<<setw(40)<<setfill('.')<<left<<"Net Sale: ";
+	cout<<'$'<<setw(10)<<setfill(' ')<<right<<movieHouse.netAmount;
+
+	cout<<endl<<endl;
+
+	for(int i=0;i<25;i++)
+		cout<<"_ ";
+	cout<<endl;
+	for(int i=0;i<25;i++)
+		cout<<" *";
+	cin>>movieHouse.movieName;
+	system("clear");
+
+}
+```
