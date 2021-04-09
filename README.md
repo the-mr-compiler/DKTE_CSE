@@ -4,7 +4,7 @@ Practical programs
 
 ## Semesters
 
-4. [4th Semester](4th_Semester/README.md)
+4. [4th Semester](4th_Semester)
 
 ## Contributing
 
