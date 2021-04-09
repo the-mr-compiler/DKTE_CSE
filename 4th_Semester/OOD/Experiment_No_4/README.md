@@ -39,7 +39,7 @@ Following are some facts about public and private members of a class:
 
 Once an object of a class is declared, it can access the members of the class. The general syntax for an object to access a member of a class is:
 
-    **classObjectName.memberName**
+    classObjectName.memberName
 
 The class members that a class object can access depend on where the object is declared.
 
