@@ -1,8 +1,7 @@
 # DKTE_CSE
 
 Practical programs
-Repository Owner : ${{ env.REPOSITORY_OWNER }}
-Repository Full Name : ${{ env.REPOSITORY_FULL_NAME }}
+
 
 ## Semesters
 
