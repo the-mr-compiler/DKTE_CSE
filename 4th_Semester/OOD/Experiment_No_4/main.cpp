@@ -4,8 +4,17 @@ int main()
 {
     Person per;
     Product prd;
+
+    cout << endl
+         << "Enter Person Details :" << endl;
     per.acceptPersonDetails();
-    per.displayPersonDetails();
+
+    cout << endl
+         << "Enter Product Details :" << endl;
     prd.intialiseProduct();
+
+    cout << endl
+         << "You Entered : " << endl;
+    per.displayPersonDetails();
     prd.displayProduct();
 }

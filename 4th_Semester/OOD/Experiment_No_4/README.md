@@ -39,7 +39,7 @@ Following are some facts about public and private members of a class:
 
 Once an object of a class is declared, it can access the members of the class. The general syntax for an object to access a member of a class is:
 
-    **classObjectName.memberName**
+    classObjectName.memberName
 
 The class members that a class object can access depend on where the object is declared.
 
@@ -131,7 +131,7 @@ _Constructors can be overloaded, to support different ways of object initializat
 8. [Product.cpp](#Product.cpp)
 9. [main.cpp](#main.cpp)
 
-#### Date.h
+#### [Date.h](https://raw.githubusercontent.com/mr-compilerMS/DKTE_CSE/master/4th_Semester/OOD/Experiment_No_4/Date.h)
 
 ```c
 class Date
@@ -154,7 +154,7 @@ class Date
 
 ```
 
-#### Date.cpp
+#### [Date.cpp](https://raw.githubusercontent.com/mr-compilerMS/DKTE_CSE/master/4th_Semester/OOD/Experiment_No_4/Date.cpp)
 
 ```c
 #include <iostream>
@@ -203,7 +203,7 @@ int Date::calculateAge(Date currentDate){
 }
 ```
 
-#### Address.h
+#### [Address.h](https://raw.githubusercontent.com/mr-compilerMS/DKTE_CSE/master/4th_Semester/OOD/Experiment_No_4/Address.h)
 
 ```c
 #include <iostream>
@@ -211,166 +211,409 @@ using namespace std;
 class Address
 {
     private:
-        string street1,street2,city,district,state,country;
+        string street1;
+        string street2;
+        string city;
+        string district;
+        string state;
+        string country;
         int pin;
+
     public:
+        string getStreet1();
+        void setStreet1(string street1);
+        string getStreet2();
+        void setStreet2(string street2);
+        string getCity();
+        void setCity(string city);
+        string getDistrict();
+        void setDistrict(string district);
+        string getState();
+        void setState(string state);
+        string getCountry();
+        void setCountry(string country);
+        int getPin();
+        void setPin(int pin);
         Address();
         void intializeAddress();
         void display();
 };
 
+
 ```
 
-#### Address.cpp
+#### [Address.cpp](https://raw.githubusercontent.com/mr-compilerMS/DKTE_CSE/master/4th_Semester/OOD/Experiment_No_4/Address.cpp)
 
 ```c
 #include "Address.h"
 
 Address::Address()
 {
-    this->city="";
-    this->country="";
-    this->district="";
-    this->pin=0;
-    this->state="";
-    this->street1="";
-    this->street2="";
+    this->city = "";
+    this->country = "";
+    this->district = "";
+    this->pin = 0;
+    this->state = "";
+    this->street1 = "";
+    this->street2 = "";
 }
 
-void Address::display(){
-    cout<<"Address : \n\t"<<this->street1<<","<<endl<<"\t"<<this->street2<<","<<endl<<"\t"<<"City : " <<this->city<<endl<<"\t"<<"District : "<<this->district<<endl<<"\t"<<"Country : "<<this->country<<endl<<"\t"<<"Pin : "<<this->pin<<endl;
+void Address::display()
+{
+    cout << "Address : \n\t" << this->street1 << "," << endl
+         << "\t" << this->street2 << "," << endl
+         << "\t"
+         << "City : " << this->city << endl
+         << "\t"
+         << "District : " << this->district << endl
+         << "\t"
+         << "Country : " << this->country << endl
+         << "\t"
+         << "Pin : " << this->pin << endl;
 }
-void Address::intializeAddress(){
-    cout<<"Street1 :";
-    getline(cin,this->street1);
-    cout<<"Street2 :";
-    getline(cin,this->street2);
-    cout<<"City :";
-    cin>>this->city;
-    cout<<"District :";
-    cin>>this->district;
-    cout<<"Country :";
-    cin>>this->country;
-    cout<<"Pin :";
-    cin>>this->pin;
+void Address::intializeAddress()
+{
+    cout << "Street1 :";
+    getline(cin, this->street1);
+    cout << "Street2 :";
+    getline(cin, this->street2);
+    cout << "City :";
+    cin >> this->city;
+    cout << "District :";
+    cin >> this->district;
+    cout << "Country :";
+    cin >> this->country;
+    cout << "Pin :";
+    cin >> this->pin;
+}
+
+string Address::getStreet1()
+{
+    return this->street1;
+}
+
+void Address::setStreet1(string street1)
+{
+    this->street1 = street1;
+}
+
+string Address::getStreet2()
+{
+    return this->street2;
+}
+
+void Address::setStreet2(string street2)
+{
+    this->street2 = street2;
+}
+
+string Address::getCity()
+{
+    return this->city;
+}
+
+void Address::setCity(string city)
+{
+    this->city = city;
+}
+
+string Address::getDistrict()
+{
+    return this->district;
+}
+
+void Address::setDistrict(string district)
+{
+    this->district = district;
+}
+
+string Address::getState()
+{
+    return this->state;
+}
+
+void Address::setState(string state)
+{
+    this->state = state;
+}
+
+string Address::getCountry()
+{
+    return this->country;
+}
+
+void Address::setCountry(string country)
+{
+    this->country = country;
+}
+
+int Address::getPin()
+{
+    return this->pin;
+}
+
+void Address::setPin(int pin)
+{
+    this->pin = pin;
 }
 ```
 
-#### Person.h
+#### [Person.h](https://raw.githubusercontent.com/mr-compilerMS/DKTE_CSE/master/4th_Semester/OOD/Experiment_No_4/Person.h)
 
 ```c
 #include <iostream>
 #include "Date.h"
 #include "Address.h"
 using namespace std;
-class Person{
+class Person
+{
     private:
-        string name,email,mobile;
+        string name;
+        string email;
+        string mobile;
         Date birthdate;
         Address address;
 
     public:
+        string getName();
+        void setName(string name);
+        string getEmail();
+        void setEmail(string email);
+        string getMobile();
+        void setMobile(string mobile);
+        Date getBirthdate();
+        void setBirthdate(Date birthdate);
+        Address getAddress();
+        void setAddress(Address address);
         Person();
-        Person(string name,Address address,string email,string mobile,Date birthdate);
+        Person(string name, Address address, string email, string mobile, Date birthdate);
         void acceptPersonDetails();
         void displayPersonDetails();
 };
 
 ```
 
-#### Person.cpp
+#### [Person.cpp](https://raw.githubusercontent.com/mr-compilerMS/DKTE_CSE/master/4th_Semester/OOD/Experiment_No_4/Person.cpp)
 
 ```c
 #include "Person.h"
 
-Person::Person(){}
-Person::Person(string name,Address address,string email,string mobile,Date birthdate){
-    this->name=name;
-    this->address=address;
-    this->email=email;
-    this->mobile=mobile;
-    this->birthdate=birthdate;
+Person::Person() {}
+Person::Person(string name, Address address, string email, string mobile, Date birthdate)
+{
+    this->name = name;
+    this->address = address;
+    this->email = email;
+    this->mobile = mobile;
+    this->birthdate = birthdate;
 }
 
-void Person::acceptPersonDetails(){
-    cout<<"EnterName :";
-    getline(cin,this->name);
-    cout<<"Address:";
+void Person::acceptPersonDetails()
+{
+    cout << "EnterName :";
+    getline(cin, this->name);
+    cout << "Address:";
     this->address.intializeAddress();
-    cout<<"Email :";
-    cin>>this->email;
-    cout<<"Mobile No :";
-    cin>>this->mobile;
-    cout<<"Birtdate :";
+    cout << "Email :";
+    cin >> this->email;
+    cout << "Mobile No :";
+    cin >> this->mobile;
+    cout << "Birtdate :";
     this->birthdate.setDate();
 }
 
-void Person::displayPersonDetails(){
-    cout<<"\nPerson Details :";
-    cout<<"\nName :"<<this->name<<endl;
+void Person::displayPersonDetails()
+{
+    cout << "\nPerson Details :";
+    cout << "\nName :" << this->name << endl;
     this->address.display();
-    cout<<"\nEmail :"<<this->email;
-    cout<<"\nMobile :"<<this->mobile;
-    cout<<"\nBirthdate :";
+    cout << "\nEmail :" << this->email;
+    cout << "\nMobile :" << this->mobile;
+    cout << "\nBirthdate :";
     this->birthdate.printDate();
+}
+string Person::getName()
+{
+    return this->name;
+}
+void Person::setName(string name)
+{
+    this->name = name;
+}
+string Person::getEmail()
+{
+    return this->email;
+}
+void Person::setEmail(string email)
+{
+    this->email = email;
+}
+string Person::getMobile()
+{
+    return this->mobile;
+}
+void Person::setMobile(string mobile)
+{
+    this->mobile = mobile;
+}
+Date Person::getBirthdate()
+{
+    return this->birthdate;
+}
+void Person::setBirthdate(Date birthdate)
+{
+    this->birthdate = birthdate;
+}
+Address Person::getAddress()
+{
+    return this->address;
+}
+void Person::setAddress(Address address)
+{
+    this->address = address;
 }
 
 ```
 
-#### Product.h
+#### [Product.h](https://raw.githubusercontent.com/mr-compilerMS/DKTE_CSE/master/4th_Semester/OOD/Experiment_No_4/Product.h)
 
 ```c
 #include <iostream>
-
 using namespace std;
 
-class Product{
-    private :
-        int productId,stockQantity,minimumQuantity;
+class Product
+{
+    private:
+        int productId, stockQantity, minimumQuantity;
         string productName;
-        float salesPrice,purchasePrice,discount;
+        float salesPrice, purchasePrice, discount;
+
     public:
+        Product();
         void intialiseProduct();
         void displayProduct();
+        void setProductId(int productId);
+        void setStockQuantity(int stockQantity);
+        void setMinimumQuantity(int minimumQuantity);
+        void setProductName(string productName);
+        void setSalesPrice(float salesPrice);
+        void setPurchasePrice(float purchasePrice);
+        void setDiscount(float discount);
+        int getProductId();
+        int getStockQuantity();
+        int getMinimumQuantity();
+        string getProductName();
+        float getSalesPrice();
+        float getPurchasePrice();
+        float getDiscount();
 };
 ```
 
-#### Product.cpp
+#### [Product.cpp](https://raw.githubusercontent.com/mr-compilerMS/DKTE_CSE/master/4th_Semester/OOD/Experiment_No_4/Product.cpp)
 
 ```c
 #include "Product.h"
-
-void Product::intialiseProduct(){
-    cout<<"\nId :";
-    cin>>this->productId;
-    cin.get();
-    cout<<"Name :";
-    getline(cin,this->productName);
-    cout<<"Purchase Price :";
-    cin>>this->purchasePrice;
-    cout<<"Sales Price :";
-    cin>>this->salesPrice;
-    cout<<"Discount :";
-    cin>>this->discount;
-    cout<<"Stock Quantity :";
-    cin>>this->stockQantity;
-    cout<<"Minimum Stock :";
-    cin>>this->minimumQuantity;
+Product::Product()
+{
+    this->productId = 0;
+    this->productName = "";
+    this->purchasePrice = 0;
+    this->salesPrice = 0;
+    this->discount = 0;
+    this->stockQantity = 0;
+    this->minimumQuantity = 0;
 }
 
-void Product::displayProduct(){
-    cout<<"\nProduct Details :";
-    cout<<"\nId :"<<this->productId;
-    cout<<"\nName :"<<this->productName;
-    cout<<"\nPurchase Price :"<<this->purchasePrice;
-    cout<<"\nSales Price :"<<this->salesPrice;
-    cout<<"\nDiscount :"<<this->discount;
-    cout<<"\nStock Quantity :"<<this->stockQantity;
-    cout<<"\nMinimum Stock :"<<this->minimumQuantity;
+void Product::intialiseProduct()
+{
+    cout << "\nId :";
+    cin >> this->productId;
+    cin.get();
+    cout << "Name :";
+    getline(cin, this->productName);
+    cout << "Purchase Price :";
+    cin >> this->purchasePrice;
+    cout << "Sales Price :";
+    cin >> this->salesPrice;
+    cout << "Discount :";
+    cin >> this->discount;
+    cout << "Stock Quantity :";
+    cin >> this->stockQantity;
+    cout << "Minimum Stock :";
+    cin >> this->minimumQuantity;
+}
+
+void Product::displayProduct()
+{
+    cout << "\nProduct Details :";
+    cout << "\nId :" << this->productId;
+    cout << "\nName :" << this->productName;
+    cout << "\nPurchase Price :" << this->purchasePrice;
+    cout << "\nSales Price :" << this->salesPrice;
+    cout << "\nDiscount :" << this->discount;
+    cout << "\nStock Quantity :" << this->stockQantity;
+    cout << "\nMinimum Stock :" << this->minimumQuantity;
+}
+
+void Product::setProductId(int productId)
+{
+    this->productId = productId;
+}
+void Product::setStockQuantity(int stockQuantity)
+{
+    this->stockQantity = stockQuantity;
+}
+void Product::setMinimumQuantity(int minimumQuantity)
+{
+    this->minimumQuantity = minimumQuantity;
+}
+void Product::setProductName(string productName)
+{
+    this->productName = productName;
+}
+void Product::setSalesPrice(float salesPrice)
+{
+    this->salesPrice = salesPrice;
+}
+void Product::setPurchasePrice(float purchasePrice)
+{
+    this->purchasePrice = purchasePrice;
+}
+void Product::setDiscount(float discount)
+{
+    this->discount = discount;
+}
+int Product::getProductId()
+{
+    return this->productId;
+}
+int Product::getStockQuantity()
+{
+    return this->stockQantity;
+}
+int Product::getMinimumQuantity()
+{
+    return this->minimumQuantity;
+}
+string Product::getProductName()
+{
+    return this->productName;
+}
+float Product::getSalesPrice()
+{
+    return this->salesPrice;
+}
+float Product::getPurchasePrice()
+{
+    return this->purchasePrice;
+}
+float Product::getDiscount()
+{
+    return this->discount;
 }
 ```
 
-#### main.cpp
+#### [main.cpp](https://raw.githubusercontent.com/mr-compilerMS/DKTE_CSE/master/4th_Semester/OOD/Experiment_No_4/main.cpp)
 
 ```c
 #include "Person.h"
@@ -379,10 +622,20 @@ int main()
 {
     Person per;
     Product prd;
+
+    cout << endl
+         << "Enter Person Details :" << endl;
     per.acceptPersonDetails();
-    per.displayPersonDetails();
+
+    cout << endl
+         << "Enter Product Details :" << endl;
     prd.intialiseProduct();
+
+    cout << endl
+         << "You Entered : " << endl;
+    per.displayPersonDetails();
     prd.displayProduct();
 }
+
 
 ```
