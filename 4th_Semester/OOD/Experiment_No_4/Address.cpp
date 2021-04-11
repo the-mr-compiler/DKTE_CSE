@@ -108,4 +108,4 @@ int Address::getPin()
 void Address::setPin(int pin)
 {
     this->pin = pin;
-}
+};
