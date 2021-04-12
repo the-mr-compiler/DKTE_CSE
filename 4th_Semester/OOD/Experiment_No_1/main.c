@@ -16,7 +16,7 @@ int main()
 			d = setDate();
 			break;
 		case 2:
-			print
+			// print
 			break;
 
 		case 3:
