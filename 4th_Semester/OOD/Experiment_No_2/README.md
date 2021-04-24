@@ -105,7 +105,7 @@ Movie Tickets Sale and Donation to Charity
   tickets sold, number of child tickets sold, and percentage of the gross amount to be
   donated to the charity. The output of the program is as follows.
 
-  ![Image of Yaktocat](Output.png)
+  ![Output To Be Shown](Output.png)
 
 ### Program Analysis:
 
