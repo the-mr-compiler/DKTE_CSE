@@ -10,12 +10,12 @@ _start: nop
 	movl $1,%edi
 
 loop:
-		movl value(,%edi,4),%ebx
-		cmpl %eax,%ebx	
-		cmovbe %ebx,%eax
-		inc %edi
-		cmp $5,%edi
-		jne loop
+	movl value(,%edi,4),%ebx
+	cmpl %eax,%ebx	
+	cmovbe %ebx,%eax
+	inc %edi
+	cmp $5,%edi
+	jne loop
 	
 movl $1,%eax
 movl $0,%ebx
