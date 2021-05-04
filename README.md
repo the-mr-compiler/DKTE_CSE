@@ -10,6 +10,7 @@ _Or_
 
 ## Semesters
 
+3. [3rd Semester](DSY_3rd_Semester)
 4. [4th Semester](4th_Semester)
 
 ## Contributing

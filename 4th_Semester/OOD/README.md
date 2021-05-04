@@ -7,3 +7,4 @@
 5. [Write a program to implement concept of function overloading](Experiment_No_5)
 6. [Write a program to implement Inheritance and Composition (Aggregation)](Experiment_No_6)
 7. [Write a class to implement Linked List](Experiment_No_7)
+8. [Write a program to implement data structure Stack and Queue.](Experiment_No_8)
