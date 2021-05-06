@@ -1,5 +1,5 @@
 # DKTE_CSE
-![](icon.jpeg)
+![](Icon.jpeg)
 
 Practical programs
 
