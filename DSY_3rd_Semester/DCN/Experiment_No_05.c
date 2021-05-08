@@ -38,7 +38,9 @@ int main()
     puts("Enter data:");
     scanf("%s",data);    
     encode(data,code);
+    puts("\nEncoded Data:");
     puts(code);
+    puts("\nDecoded Data:");
     decode(code,data);
     puts(data);
     return 0;
