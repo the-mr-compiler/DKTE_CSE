@@ -26,9 +26,8 @@ int main()
     serviceTax = brokerage * 0.1036;
     securityTax = totalSelling * 0.00025;
     stampDuty = totalTurnover * 0.00002;
-
-    regulatoryCharges = serviceTax + serviceTax + stampDuty;
-    amount = totalSelling - totalPurchase - regulatoryCharges;
+    regulatoryCharges=(totalTurnover*0.00004);
+    amount = totalSelling - totalPurchase - (regulatoryCharges+serviceTax + securityTax + stampDuty);
     if (amount > 0)
         printf("\nProfit of %f Rs", amount);
     else if (amount < 0)
