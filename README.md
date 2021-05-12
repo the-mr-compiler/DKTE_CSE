@@ -1,6 +1,6 @@
 # DKTE_CSE
 
-![](Icon.jpeg)
+![DKTE](Icon.jpeg)
 
 Practical programs
 
