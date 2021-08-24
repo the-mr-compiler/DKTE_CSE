@@ -14,7 +14,7 @@ _Or_
 
 3. [DSY 3rd Semester](DSY_3rd_Semester)
 4. [4th Semester](4th_Semester)
-
+5. [5th Semester](5th_Semester)
 ## Contributing ![](https://img.shields.io/github/forks/mr-compilerMS/DKTE_CSE?style=social)
 
 Pull requests are welcome.
