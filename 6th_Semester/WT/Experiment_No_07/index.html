@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="row justify-content-center">
+        <div class="card border-success w-50 mt-5">
+            <img class="card-img-top"
+                src="https://cdn5.vectorstock.com/i/1000x1000/35/44/cricket-icon-vector-783544.jpg" alt="">
+            <div class="card-body">
+                <h6 class="card-title">Live Score Here</h6>
+                <h4 id="match"></h4>
+                <div class="d-flex justify-content-between">
+                    <p id="team1"></p>
+                    <p id="team2"></p>
+                </div>
+                <b id="score-board"></>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const url = 'https://cricket-api.vercel.app/live.php';
+    $(document).ready(function () {
+        setInterval(() => {
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function (data) {
+                    $('#team1').text(data.livescore.teamone);
+                    $('#team2').text(data.livescore.teamtwo);
+                    $('#match').text(data.livescore.title);
+                    $('#score-board').html(data.livescore.update);
+                }
+            });
+        }, 1000);
+
+    });
+    const scoreBoard = document.getElementById('score-board');
+    const getScore = () => {
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function (data) {
+                scoreBoard.innerHTML = data.score;
+            }
+        });
+    }
+</script>
+
+</html>

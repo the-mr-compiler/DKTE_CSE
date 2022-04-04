@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bootstrap Example</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="card col-6 border border-primary">
+        <div class="card-body text-center">
+          <h4 class="card-title">digiVote </h4>
+          <hr class="bg-primary" />
+          <div class="mb-3 text-start">
+            <label for="aadharno" class="form-label h5 text-start w-100 ps-2">Voter Id </label>
+            <input type="text" class="form-control" maxlength="12" name="aadharno" id="aadharno"
+              onchange="document.getElementById('aadharhelp').classList.add('d-none');" aria-describedby="aadharhelp"
+              placeholder="1234 1234 1234" />
+            <small id="aadharhelp" class="form-text w-100 text-danger d-none text-start">Invalid Passport Number</small>
+          </div>
+          <div id="btn-section row justify-content-center">
+            <div class="d-none" id="otp">
+              <label class="form-label h5 text-start w-100 ps-2" for="otp">Otp</label>
+              <input class="form-control mb-3" placeholder="1234" maxlength="4" id="otpvalue" type="text" />
+            </div>
+            <div class="btn btn-primary col-4" id="sendOtp" onclick="sendOtp()">
+              Send OTP
+            </div>
+          </div>
+          <a href="register.html" class="btn-link">Register Here</a>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-success text-center p-2 mt-4 fade" role="alert">
+      OTP sent successfully...!
+    </div>
+    <div class="alert alert-danger text-center p-2 mt-4 fade" role="alert">
+      Invalid OTP please recheck..!
+    </div>
+  </div>
+  <script>
+    function sendOtp() {
+      let aadhar = document.getElementById("aadharno");
+
+      if (
+        isNaN(aadhar.value) ||
+        aadhar.value == "" ||
+        aadhar.value.length != 12
+      ) {
+        document.getElementById("aadharhelp").classList.remove("d-none");
+        return;
+      }
+      let btn = document.getElementById("sendOtp");
+      btn.innerHTML =
+        '<img width="32px" height="32px" src="./ZZ5H.gif" alt="In Progress">';
+      setTimeout(otpSent, 1000);
+    }
+    function otpSent() {
+      let btn = document.getElementById("sendOtp");
+      document.getElementsByClassName("alert")[0].classList.add("show");
+      setTimeout(() => {
+        document.getElementsByClassName("alert")[0].classList.remove("show");
+      }, 1000);
+      btn.innerHTML = "Login";
+      btn.onclick = login;
+      document.getElementById("otp").classList.remove("d-none");
+    }
+    function login() {
+      let aadhar = document.getElementById("aadharno");
+      let field = document.getElementById("otpvalue");
+      if (field.value === aadhar.value.substr(aadhar.value.length - 4)) {
+        window.location.href = "/vote.html";
+      } else {
+        document.getElementsByClassName("alert")[1].classList.add("show");
+        setTimeout(() => {
+          document
+            .getElementsByClassName("alert")[1]
+            .classList.remove("show");
+        }, 1400);
+      }
+    }
+  </script>
+</body>
+
+</html>

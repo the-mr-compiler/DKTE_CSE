@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      .container {
+        width: 400px;
+        border: 2px solid black;
+        padding: 10px 20px;
+        text-align: center;
+        box-shadow: 2px 2px 20px 10px rgba(0, 0, 255, 0.2);
+      }
+      .title {
+      }
+      .input:focus {
+        border: 0;
+        text-align: right;
+        /* margin-right: 38px; */
+        outline: none;
+        font-size: 32px;
+      }
+      .input:disabled {
+        font-size: 30px;
+        border: 0;
+        text-align: right;
+      }
+      .output {
+        text-align: right;
+        font-size: 40px;
+        padding: 0 16px 0 0;
+        color: #aaa;
+      }
+      .main {
+        display: flex;
+        justify-content: center;
+        margin-top: 10vh;
+      }
+      .row {
+        display: flex;
+        justify-content: space-around;
+      }
+      .btn {
+        width: 100%;
+        height: 30px;
+        box-shadow: 2px 2px 20px 3px rgba(0, 0, 255, 0.2);
+        margin: 10px;
+      }
+      .btn:hover {
+        box-shadow: 4px 4px 20px 10px rgba(0, 0, 255, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="container">
+        <h1 class="title">Calculator</h1>
+        <input
+          autocomplete="off"
+          class="input"
+          type="text"
+          placeholder="0"
+          name="input"
+          disabled
+          id="input1"
+        />
+        <div class="output">=0</div>
+        <div class="btns">
+          <div class="row">
+            <div class="btn">AC</div>
+          </div>
+
+          <div class="row">
+            <button class="btn">7</button>
+            <button class="btn">8</button>
+            <button class="btn">9</button>
+            <button class="btn">/</button>
+          </div>
+          <div class="row">
+            <button class="btn">4</button>
+            <button class="btn">5</button>
+            <button class="btn">6</button>
+            <button class="btn">*</button>
+          </div>
+          <div class="row">
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+            <button class="btn">-</button>
+          </div>
+          <div class="row">
+            <button class="btn">0</button>
+            <button class="btn">.</button>
+            <button class="btn">=</button>
+            <button class="btn">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll(".btn").forEach((btn) =>
+        btn.addEventListener("click", (e) => {
+          var btn = e.target.innerText;
+          var input = document.querySelector(".input");
+          var output = document.querySelector(".output");
+          if (btn === "AC") {
+            input.value = "";
+            output.innerHTML = "=0";
+            return;
+          }
+          var val = input.value;
+          if (btn === "=") {
+            try {
+              output.innerHTML = "=" + parseFloat(eval(val)).toFixed(4);
+            } catch {}
+            return;
+          }
+          input.value = input.value + btn;
+          val = input.value;
+          try {
+            output.innerHTML = "=" + parseFloat(eval(val)).toFixed(4);
+          } catch {}
+        })
+      );
+    </script>
+  </body>
+</html>

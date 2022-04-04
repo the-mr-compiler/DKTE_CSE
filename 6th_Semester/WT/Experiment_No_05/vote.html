@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digi Vote</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .card {
+        background-color: #ffffff3f;
+      }
+      .space {
+        height: 20vh;
+      }
+      body {
+        background-image: url("https://i.ytimg.com/vi/Kcy7fgDbJRM/maxresdefault.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="space"></div>
+      <div class="row g-3 mt-5">
+        <div class="col-3">
+          <div class="card border-warnign">
+            <img
+              class="card-img-top"
+              height="300px"
+              src="https://upload.wikimedia.org/wikipedia/commons/5/56/Donald_Trump_official_portrait.jpg"
+              alt=""
+            />
+            <div class="card-body text-center text-white w-100">
+              <h4 class="card-title">Donald Trump</h4>
+              <p class="card-text">
+                USA
+                <img
+                  src="https://cdn.iconscout.com/icon/free/png-128/united-states-of-america-flag-country-nation-union-empire-33135.png"
+                  height="30px"
+                  alt="United Icon"
+                />
+              </p>
+            </div>
+            <div class="card-footer text-center">
+              <div class="btn btn-warning">Vote</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card border-warnign">
+            <img
+              class="card-img-top"
+              height="300px"
+              src="https://images.news18.com/ibnlive/uploads/2021/11/vladimir-putin.jpg"
+              alt=""
+            />
+            <div class="card-body text-center text-white w-100">
+              <h4 class="card-title">Vladamir Putin</h4>
+              <p class="card-text">
+                Russia
+                <img
+                  src="https://cdn.iconscout.com/icon/free/png-128/russia-flag-country-nation-union-empire-33064.png"
+                  height="30px"
+                  alt="Russia Icon"
+                />
+              </p>
+            </div>
+            <div class="card-footer text-center">
+              <div class="btn btn-warning">Vote</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card border-warnign">
+            <img
+              class="card-img-top"
+              height="300px"
+              src="https://images.news18.com/ibnlive/uploads/2021/12/modi-6-2.jpg"
+              alt=""
+            />
+            <div class="card-body text-center text-white w-100">
+              <h4 class="card-title">Narendra Modi</h4>
+              <p class="card-text">
+                India
+                <img
+                  src="https://cdn.iconscout.com/icon/free/png-128/india-flag-country-nation-union-empire-32988.png"
+                  height="30px"
+                  alt="India Icon"
+                />
+              </p>
+            </div>
+
+            <div class="card-footer text-center">
+              <div class="btn btn-warning">Vote</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card border-warnign">
+            <img
+              class="card-img-top"
+              height="300px"
+              src="https://cdn.britannica.com/74/195374-050-A7B13DCA/Emmanuel-Macron-2017.jpg"
+              alt=""
+            />
+            <div class="card-body text-center text-white w-100">
+              <h4 class="card-title">Emanual Macron</h4>
+              <p class="card-text">
+                France
+                <img
+                  src="https://cdn.iconscout.com/icon/free/png-128/france-flag-country-nation-union-empire-32967.png"
+                  height="30px"
+                  alt="France Icon"
+                />
+              </p>
+            </div>
+            <div class="card-footer text-center">
+              <div class="btn btn-warning">Vote</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="d-none"
+      id="showModal"
+      data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop"
+    ></button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-success text-white">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Success</h5>
+          </div>
+          <div class="modal-body h3">Your Vote Registered</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      (() => {
+        let arr = document.getElementsByClassName("btn-warning");
+        for (let i = 0; i < arr.length; i++) {
+          const element = arr[i];
+          element.onclick = voted;
+        }
+        // .forEach((element) => {
+        //   element.onclick = voted;
+        // });
+      })();
+      function voted() {
+        document.getElementById("showModal").click();
+        setTimeout(() => {
+          window.location.href = "thanks.html";
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>

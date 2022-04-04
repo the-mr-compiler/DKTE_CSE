@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Voter Registration</title>
+    <style>
+      .wrapper {
+        width: 350px;
+        margin: 0 auto;
+      }
+      .container {
+        padding: 40px;
+        background: #fff;
+        border-radius: 5px;
+        border: 2px red solid;
+      }
+      .input {
+        margin: 10px 0px 10px 0px;
+      }
+      .input input,
+      .input textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+      }
+      .btn {
+        padding: 10px;
+        font-size: 15px;
+        color: white;
+        background: #0968c2;
+        border: none;
+        border-radius: 5px;
+      }
+      .error {
+        color: red;
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
+
+      .d-none {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container wrapper">
+      <h3 style="text-align: center">Voter Registration Form</h3>
+      <form
+        method="POST"
+        onsubmit="return document.getElementsByClassName('d-none').length===5;"
+        name="myform"
+      >
+        <div class="wrapper">
+          <div class="input">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Firstname Lastname"
+              required
+              onchange="validateField(this, 'name')"
+            />
+            <div class="error name d-none">Invalid Name</div>
+          </div>
+          <div class="input">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="youremail@company.domain"
+              required
+              onchange="validateField(this, 'email')"
+            />
+            <div class="error email d-none">Invalid Email</div>
+          </div>
+          <div class="input">
+            <label for="phone">Phone Number</label>
+            <input
+              type="phone"
+              maxlength="13"
+              name="phone"
+              id="phone"
+              placeholder="+911234567890"
+              required
+              onchange="validateField(this, 'phone')"
+              onfocus="if(this.value.length===0)this.value='+91'"
+            />
+            <div class="error phone d-none">Invalid Phone Number</div>
+          </div>
+          <div class="input">
+            <label for="dob">Date of Birth:</label>
+            <input
+              type="date"
+              name="dob"
+              id="dob"
+              required
+              onchange="validateField(this,'dob')"
+            />
+            <div class="error dob d-none">You are under 18.</div>
+          </div>
+          <div class="input">
+            <label for="aadhar">Aadhar Number</label>
+            <input
+              type="text"
+              name="aadhar"
+              id="aadhar"
+              maxlength="12"
+              placeholder="XXXXXXXXXXXX"
+              required
+              onchange="validateField(this, 'aadhar')"
+            />
+            <div class="error aadhar d-none">Invalid Aadhar number</div>
+          </div>
+          <div class="input">
+            <label for="address">Address</label>
+            <textarea
+              name="address"
+              id="address"
+              onchange="validateField(this,'address')"
+              cols="30"
+              rows="4"
+            ></textarea>
+            <div class="error address d-none">Invalid Address</div>
+          </div>
+          <div class="btns">
+            <button class="btn" type="reset">Reset</button>
+            <button class="btn" type="submit">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script>
+      function validateField(field, name) {
+        var value = field.value;
+        var error = document.getElementsByClassName(name)[0];
+        switch (name) {
+          case "name":
+            if (value.length < 7) {
+              error.classList.remove("d-none");
+            } else {
+              error.classList.add("d-none");
+            }
+            break;
+          case "email":
+            if (!validateEmail(value)) {
+              error.classList.remove("d-none");
+            } else {
+              error.classList.add("d-none");
+            }
+            break;
+          case "dob":
+            if (getAge(value) < 18) {
+              error.classList.remove("d-none");
+            } else {
+              error.classList.add("d-none");
+            }
+            break;
+          case "aadhar":
+            if (value.length != 12 || isNaN(value)) {
+              error.classList.remove("d-none");
+            } else {
+              error.classList.add("d-none");
+            }
+            break;
+          case "address":
+            if (value.length < 10) {
+              error.classList.remove("d-none");
+            } else {
+              error.classList.add("d-none");
+            }
+            break;
+          case "phone":
+            if (value.length != 13 || isNaN(value)) {
+              error.classList.remove("d-none");
+            } else {
+              error.classList.add("d-none");
+            }
+        }
+      }
+      function getAge(dateString) {
+        var today = new Date();
+        var birthDate = new Date(dateString);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+        }
+        return age;
+      }
+      const validateEmail = (email) => {
+        return String(email)
+          .toLowerCase()
+          .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          );
+      };
+    </script>
+  </body>
+</html>

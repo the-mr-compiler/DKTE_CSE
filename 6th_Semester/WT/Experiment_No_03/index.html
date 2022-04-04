@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - CREATURES</title>
+  <style>
+    .element {
+      flex: 1;
+      position: relative;
+      margin: 10px;
+      height: 40vh;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .element img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .showonhover {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0);
+      color: rgba(255, 255, 255, 0);
+      font-size: 20px;
+      text-align: center;
+      line-height: 100%;
+    }
+
+    .showonhover:hover {
+      padding-top: 25%;
+      background-color: rgba(0, 0, 0, 0.452);
+      color: #fff;
+      font-size: 20px;
+      text-align: center;
+      line-height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 style="text-align: center">Creatures On our planet</h2>
+  <p style="text-align: center">
+    <a href="index.html">Home</a>
+    <a href="animals.html">Animals</a>
+    <a href="birds.html">Birds</a>
+    <a href="insects.html">Insects</a>
+  </p>
+  <div style="display: flex">
+    <div class="element">
+      <img alt="" src="allanimals.jpg" />
+      <a href="animals.html" class="showonhover"> Animals </a>
+    </div>
+    <div class="element">
+      <img alt="" src="birds.jpg" />
+      <a href="birds.html" class="showonhover"> Birds </a>
+    </div>
+    <div class="element">
+      <img alt="" src="insects.webp" />
+      <a href="insects.webp" class="showonhover"> Insects </a>
+    </div>
+  </div>
+</body>
+
+</html>

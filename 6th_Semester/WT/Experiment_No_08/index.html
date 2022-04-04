@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        div.gamefield {
+            width: 95vw;
+            height: 95vh;
+            overflow-y: hidden;
+        }
+
+        div.balloon {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 150px;
+            height: 150px;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+    </style>
+
+    <script>
+        var burl = "ballon.png";
+
+        function createBalloon(x, y) {
+            var gamefield = $("div.gamefield");
+
+            var d = $(document.createElement("div"));
+            d.addClass("balloon");
+            d.css("background-image", "url('" + burl + "')");
+
+            var maxwidth = gamefield.width() - 100;
+            var left = x - 10; // ;
+
+            d.css("left", left + "px");
+            d.css("bottom", "-180px");
+
+            gamefield.append(d);
+            d.animate(
+                {
+                    bottom: gamefield.height(),
+                },
+                6000,
+                function () {
+                    animationComplete($(this));
+                }
+            );
+        }
+
+        function animationComplete(jobj) {
+            jobj.remove();
+        }
+
+        $(function () {
+            /* $("div.gamefield").click(function (e) {
+              createBalloon(e.pageX, e.pageY);
+            }); */
+            $("div.gamefield").mousemove(function (e) { });
+
+            setInterval(() => {
+                let x = Math.round(window.screen.width * Math.random());
+                let y = window.screen.height + 80;
+                createBalloon(x, y);
+            }, 800);
+
+        });
+    </script>
+</head>
+
+<body bgcolor="black">
+    <div class="gamefield">
+    </div>
+</body>
+
+</html>
