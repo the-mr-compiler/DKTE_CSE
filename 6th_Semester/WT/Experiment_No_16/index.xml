@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="style.xsl" type="text/xsl"?>
+
+<!DOCTYPE studentinfo [
+    <!ELEMENT studentinfo (student+)>
+    <!ELEMENT student (name, age)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT age (#PCDATA)>
+]>
+
+<studentinfo>
+    <student>
+        <name>Viabhav</name>
+        <age>25</age>
+    </student>
+    <student>
+        <name>Pramod</name>
+        <age>24</age>
+    </student>
+</studentinfo>

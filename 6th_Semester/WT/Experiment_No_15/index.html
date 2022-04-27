@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML parser</title>
+</head>
+
+<body>
+
+
+    <script>
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.status === 200) {
+                parse(this);
+            }
+        }
+
+        xhttp.open('GET', '/Experiment_No_14/external.xml', true);
+        xhttp.send();
+        function parse(xml) {
+            let parser = new DOMParser();
+            let xml1 = parser.parseFromString(xml.responseText, "text/xml");
+            xml1.childNodes.forEach(element => {
+                if (element.childNodes.length > 1) {
+                    element.childNodes.forEach(ele => {
+                        if (ele.childNodes.length > 1) {
+                            document.writeln(ele.childNodes[1].textContent + " : age = ");
+                            document.writeln(ele.childNodes[3].textContent + "<br>");
+
+                        }
+                    })
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

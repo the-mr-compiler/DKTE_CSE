@@ -1,0 +1,6 @@
+<!ELEMENT studentinfo (student+)>
+<!ELEMENT student (name, age)>
+<!ATTLIST student prn CDATA #REQUIRED>
+<!ATTLIST student class (fy|sy|ty) #REQUIRED>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT age (#PCDATA)>

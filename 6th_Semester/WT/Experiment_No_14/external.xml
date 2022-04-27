@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE studentinfo SYSTEM "studentinfo.dtd">
+<studentinfo>
+    <student class="fy" prn="12390">
+        <name>Pramod</name>
+        <age>25</age>
+    </student>
+    <student class="sy" prn="sldfjk">
+        <name>Vaibhav</name>
+        <age>24</age>
+    </student>
+</studentinfo>
