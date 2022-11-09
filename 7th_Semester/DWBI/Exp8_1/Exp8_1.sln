@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "Exp8_1", "Exp8_1.dwproj", "{0FCCA5F4-47E8-4425-BD23-01D956058BC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FCCA5F4-47E8-4425-BD23-01D956058BC3}.Development|Default.ActiveCfg = Development
+		{0FCCA5F4-47E8-4425-BD23-01D956058BC3}.Development|Default.Build.0 = Development
+		{0FCCA5F4-47E8-4425-BD23-01D956058BC3}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

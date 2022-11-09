@@ -1,0 +1,46 @@
+Exp 8
+1. create new Analysis services multidimensional and data mining project
+
+2. From solution explorer data sources->new data source
+	- new connection -> enter server name -> select database -> AdventureWorkDW2012 -> next
+	- enter computer username and password
+	- finish
+
+3. from solution explorer data source view -> new data source view
+	- select data source AdventureWorkDW2012 -> next
+	- add fact internet sales -> click add related table -> remove dimpromotion -> remove dim currency -> remove fact internet sales reason ->next
+	- finish
+
+4. from solution explorer cubes-> new cube
+	- use existing tables -> next
+	- click suggest -> next -> next
+	- uncheck face internet sales ->next
+	- finish
+
+5. from solution explore Dimensions-> dim date.dim
+	- from data source drag and drop Fiscal year to attributes 
+
+6. from solution explore Dimensions-> dim date.dim
+	- from data source drag and drop Fiscal year to attributes 
+
+7. from solution explore Dimensions-> dim sales territory.dim
+	- from data source drag and drop Sales territory region to attributes 
+	- from data source drag and drop Sales territory country to attributes 
+
+8. from solution explore Dimensions-> dim product.dim
+	- from data source drag and drop EnglishProductName to attributes 
+
+9. from solution explore select project title-> right click-> properties
+	- select deployment
+	- change server name to your sql server name
+	- ok
+
+10. from solution explore select project title-> right click-> build
+
+11. from solution explore select project title-> right click-> deploy
+
+12. from solution explorer select AdventureWorkDW.cude -> right click -> browse
+
+13. from measures select sales amount -> drag and drop
+
+14. select dimension and apply filters accordingly
