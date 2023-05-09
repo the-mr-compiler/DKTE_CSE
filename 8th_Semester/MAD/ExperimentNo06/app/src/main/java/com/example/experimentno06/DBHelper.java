@@ -19,7 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE "+TABLE+"(prn VARCHAR(20) PRIMARY KEY, name VARCHAR(50))");
+        db.execSQL("CREATE TABLE "+TABLE+"(prn VARCHAR(20), name VARCHAR(50))");
     }
 
     @Override
@@ -36,6 +36,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Cursor fetch(){
         Cursor cursor= getReadableDatabase().rawQuery("SELECT * FROM "+TABLE,null);
+        cursor.moveToFirst();
         return cursor;
     }
 
